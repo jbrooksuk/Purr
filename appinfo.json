@@ -1,0 +1,17 @@
+{
+  "uuid": "5128adec-384b-430c-947c-f3d34d3a60cd",
+  "shortName": "Purr",
+  "longName": "Purr",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
