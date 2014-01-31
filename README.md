@@ -1,4 +1,4 @@
-# Purr
+# Purr [![Gittip](http://badgr.co/gittip/jbrooksuk.png)](https://www.gittip.com/jbrooksuk/)
 
 ![Purr](https://raw2.github.com/jbrooksuk/Purr/master/images/large-icon.png)
 
