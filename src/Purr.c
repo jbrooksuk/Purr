@@ -1,13 +1,14 @@
 #include <pebble.h>
 
+#define PURR_INTERVAL 5
+
 static Window *window;
 static TextLayer *text_layer;
 
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   int minute = tick_time->tm_min;
 
-  const int minuteinterval = 5;
-  if (minute % minuteinterval == 0) {
+  if (minute % PURR_INTERVAL == 0) {
     vibes_double_pulse();
   }
 }
