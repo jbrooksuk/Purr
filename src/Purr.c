@@ -1,6 +1,6 @@
 #include <pebble.h>
 
-#define PURR_INTERVAL 1
+#define PURR_TIMEOUT 300000
 
 static Window *window;
 static TextLayer *text_layer;
@@ -9,6 +9,8 @@ static AppTimer *timer;
 static void purr(void *data) {
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Purr...");
   vibes_long_pulse();
+
+  timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
 }
 
 int main(void) {
@@ -19,7 +21,7 @@ int main(void) {
   GRect bounds = layer_get_frame(window_layer);
   // text_layer = text_layer_create(bounds);
 
-  timer = app_timer_register(300000, purr, NULL);
+  timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
 
   app_event_loop();
 }
