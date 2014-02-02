@@ -1,15 +1,21 @@
 #include <pebble.h>
 
 #define PURR_TIMEOUT 300000
+#define PURR_INTRO_TIMEOUT 3500
 
 static Window *window;
 static TextLayer *text_layer;
 static AppTimer *timer;
+bool hasIntro = true;
 
 static void purr(void *data) {
   vibes_long_pulse();
 
   timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
+}
+
+static void hide_intro(void *data) {
+  text_layer_destroy(text_layer);
 }
 
 int main(void) {
@@ -25,6 +31,7 @@ int main(void) {
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
 
   timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
+  app_timer_register(PURR_INTRO_TIMEOUT, hide_intro, NULL);
 
   app_event_loop();
 }
