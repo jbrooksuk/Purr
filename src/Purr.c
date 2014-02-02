@@ -7,7 +7,6 @@ static TextLayer *text_layer;
 static AppTimer *timer;
 
 static void purr(void *data) {
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "Purr...");
   vibes_long_pulse();
 
   timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
