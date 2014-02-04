@@ -4,7 +4,7 @@
   "longName": "Purr",
   "companyName": "James Brooks",
   "versionCode": 1,
-  "versionLabel": "1.2.0",
+  "versionLabel": "1.3.0",
   "watchapp": {
     "watchface": true
   },
