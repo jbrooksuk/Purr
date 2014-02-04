@@ -1,4 +1,4 @@
-#include <pebble.h>
+#include "pebble.h"
 
 #define PURR_TIMEOUT 300000
 #define PURR_INTRO_TIMEOUT 3500
@@ -8,8 +8,13 @@ static TextLayer *text_layer;
 static AppTimer *timer;
 bool hasIntro = true;
 
+static const VibePattern purr_pattern = {
+  .durations = (uint32_t []) {200, 50, 100, 50, 200},
+  .num_segments = 5
+};
+
 static void purr(void *data) {
-  vibes_long_pulse();
+  vibes_enqueue_custom_pattern(purr_pattern);
 
   timer = app_timer_register(PURR_TIMEOUT, purr, NULL);
 }
